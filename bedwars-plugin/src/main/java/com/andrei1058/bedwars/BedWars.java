@@ -149,30 +149,30 @@ public class BedWars extends JavaPlugin {
 
         /* Load version support */
         //noinspection rawtypes
-        Class supp;
+        // Class supp;
 
-        try {
-            supp = Class.forName("com.andrei1058.bedwars.support.version." + version + "." + version);
-        } catch (ClassNotFoundException e) {
-            serverSoftwareSupport = false;
-            this.getLogger().severe("I can't run on your version: " + version);
-            return;
-        }
+        // try {
+        //     supp = Class.forName("com.andrei1058.bedwars.support.version." + version + "." + version);
+        // } catch (ClassNotFoundException e) {
+        //     serverSoftwareSupport = false;
+        //     this.getLogger().severe("I can't run on your version: " + version);
+        //     return;
+        // }
 
         api = new API();
         Bukkit.getServicesManager().register(com.andrei1058.bedwars.api.BedWars.class, api, this, ServicePriority.Highest);
 
-        try {
-            //noinspection unchecked
-            nms = (VersionSupport) supp.getConstructor(Class.forName("org.bukkit.plugin.Plugin"), String.class).newInstance(this, version);
-        } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException | ClassNotFoundException e) {
-            e.printStackTrace();
-            serverSoftwareSupport = false;
-            this.getLogger().severe("Could not load support for server version: " + version);
-            return;
-        }
+        // try {
+        //     //noinspection unchecked
+        //     nms = (VersionSupport) supp.getConstructor(Class.forName("org.bukkit.plugin.Plugin"), String.class).newInstance(this, version);
+        // } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException | ClassNotFoundException e) {
+        //     e.printStackTrace();
+        //     serverSoftwareSupport = false;
+        //     this.getLogger().severe("Could not load support for server version: " + version);
+        //     return;
+        // }
 
-        this.getLogger().info("Loading support for paper/spigot: " + version);
+        // this.getLogger().info("Loading support for paper/spigot: " + version);
 
         // Setup languages
         new English();
